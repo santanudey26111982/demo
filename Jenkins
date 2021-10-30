@@ -1,0 +1,9 @@
+node{
+  stage('SCM Checkout'){
+    git 'https://github.com/santanudey26111982/demo.git'
+  }
+  stage('Compile-Package'){
+       def mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
+    sh "${mvnHome}/bin/mvn package"
+  }
+}
